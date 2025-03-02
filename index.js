@@ -1,11 +1,12 @@
 import 'dotenv/config';
 import express from 'express';
+import cors from 'cors';
 const app = express();
 
 const port = process.env.PORT || 3000;
 
 app.use(express.json());
-
+app.use(cors());
  let teadata  = [];
 
  let nextId = 1;
@@ -58,6 +59,8 @@ app.use(express.json());
    
    return res.status(200).send('deleted')
   })
+
+  
 app.listen(port,()=>{
     console.log(`Server is listening at localhost:${port}....`);
 })

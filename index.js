@@ -1,15 +1,17 @@
+
 import 'dotenv/config';
 import express from 'express';
-import cors from 'cors';
+
 const app = express();
 
 const port = process.env.PORT || 3000;
 
 app.use(express.json());
-app.use(cors());
+
  let teadata  = [];
 
  let nextId = 1;
+
  app.post('/teas', (req,res)=>{
     const {name,price} = req.body
     const newTea = {id: nextId++,name,price}
@@ -30,7 +32,9 @@ app.use(cors());
     res.status(200).send(tea)
  })
 
- 
+ app.get('/id',(req,res)=>{
+  res.send("hello tea")
+ })
 
  //update
 
@@ -64,3 +68,4 @@ app.use(cors());
 app.listen(port,()=>{
     console.log(`Server is listening at localhost:${port}....`);
 })
+export default app; 

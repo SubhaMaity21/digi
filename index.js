@@ -68,4 +68,4 @@ app.use(express.json());
 app.listen(port,()=>{
     console.log(`Server is listening at localhost:${port}....`);
 })
-export default app; 
+export default app
